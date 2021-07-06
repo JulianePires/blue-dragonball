@@ -16,7 +16,7 @@ export class ItemCard extends Component {
     const { item } = this.state;
 
     return (
-      <Col xs="12" sm="6" md="4" lg="3">
+      <Col xs="12" sm="8" md="8" lg="10">
         <Route
           render={({ history }) => (
             <Card

@@ -66,7 +66,7 @@ export class ReadAll extends Component {
           <Container className="contentArea">
             <Row>
               {filteredItems.map((item) => (
-                <ItemCard item={item} key={item._id} />
+                <ItemCard item={item} key={item._id} className="contentCard" />
               ))}
             </Row>
           </Container>
