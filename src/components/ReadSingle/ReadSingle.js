@@ -1,11 +1,10 @@
-import { Component } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { Api } from '../../Api/Api';
-import '../../Styles/ReadSingle.scss'
+import { Component } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { Api } from "../../Api/Api";
+import "../../Styles/ReadSingle.scss";
 
 export class ReadSingle extends Component {
-
   constructor(props) {
     super(props);
 
@@ -18,11 +17,8 @@ export class ReadSingle extends Component {
   }
 
   async componentDidMount() {
+    const request = await Api.buildApiGetRequest(Api.readSingleUrl(this.id));
 
-    const request = await Api.buildApiGetRequest(
-      Api.readSingleUrl(this.id),
-    );
-    
     const item = await request.json();
 
     this.setState({
@@ -32,14 +28,17 @@ export class ReadSingle extends Component {
   }
 
   render() {
-
-    const {item} = this.state;
+    const { item } = this.state;
 
     return (
       <>
         <Container className="actions">
-          <Link className="btn btn-info" to={'/update/' + item._id}>Editar</Link>
-          <Link className="btn btn-danger" to={'/delete/' + item._id}>Excluir</Link>
+          <Link className="btn btn-info" to={"/update/" + item._id}>
+            Editar
+          </Link>
+          <Link className="btn btn-danger" to={"/delete/" + item._id}>
+            Excluir
+          </Link>
         </Container>
 
         <hr />
@@ -54,7 +53,7 @@ export class ReadSingle extends Component {
 
           <Row>
             <Col>
-              <img className="info-img" src={item.imageUrl} alt={item.name}/>
+              <img className="info-img" src={item.imageUrl} alt={item.name} />
             </Col>
           </Row>
         </Container>
